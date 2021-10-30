@@ -1,0 +1,17 @@
+##TITLE= Parameter file, TOPSPIN		Version 2.1
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 2	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ 2021-09-22 15:51:07.183 -0700  Administrator@EMX_XP
+$$ Z:/data/Thomas/nmr/20210922_TEMPOL_1mM_Cyl_B12probe/200/scon2
+$$ process C:\Bruker\TOPSPIN\prog\mod\go.exe
+##$BLKTR= (0..15)
+3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+##$DE1= 4.5
+##$DEADC= 0.5
+##$DEPA= 4.5
+##$DERX= 1.5
+##$FILCOR= 0
+##END=

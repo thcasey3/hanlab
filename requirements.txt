@@ -1,0 +1,6 @@
+dnplab
+numpy
+scipy
+PyQt5
+
+

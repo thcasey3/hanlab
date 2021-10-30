@@ -1,0 +1,18 @@
+##TITLE= Audit trail, TOPSPIN		Version 2.1
+##JCAMPDX= 5.01
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ Z:/data/Thomas/nmr/20210923_TEMPOL_1mM_Cyl_B12probe/300/audita.txt
+##AUDIT TRAIL=  $$ (NUMBER, WHEN, WHO, WHERE, PROCESS, VERSION, WHAT)
+(   1,<2021-09-23 13:55:36.294 -0700>,<Administrator>,<EMX_XP>,<go>,<TOPSPIN 2.1>,
+      <created by zg
+	started at 2021-09-23 12:30:05.777 -0700,
+	POWCHK disabled, PULCHK disabled,
+       configuration hash MD5:
+       8C E8 74 C8 38 AD 1A 66 95 E9 4D D2 EC CF 0E D3
+       data hash MD5: 2K * 10 * 5
+       3B F4 74 DB F7 9F 4B 27 A7 53 65 61 6D 1C 1D 66>)
+##END=
+
+$$ hash MD5
+$$ 59 C9 27 AB AE FA 4A 2F 6E EE 55 45 C2 6C AF F9

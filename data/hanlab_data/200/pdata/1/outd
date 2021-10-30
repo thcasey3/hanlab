@@ -1,0 +1,17 @@
+##TITLE= Parameter file, TOPSPIN		Version 2.1
+##JCAMPDX= 5.0
+##DATATYPE= Parameter Values
+##NPOINTS= 1	$$ modification sequence number
+##ORIGIN= Bruker BioSpin GmbH
+##OWNER= Administrator
+$$ 2021-09-21 15:08:15.749 -0700  Administrator@EMX_XP
+$$ Z:/data/Thomas/nmr/20210921_TEMPOL_1mM_Cyl_B12probe/200/pdata/1/outd
+$$ process C:\Bruker\TOPSPIN\prog\mod\edparproc.exe
+##$CURPLOT= <NMR-lj1200>
+##$CURPRIN= <$noprint>
+##$DFORMAT= <normdp>
+##$LAYOUT= <+/1D_H.xwp>
+##$LFORMAT= <normlp>
+##$PFORMAT= <normpl>
+##$SURQMSG= 1
+##END=
