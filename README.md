@@ -2,8 +2,8 @@
 
 [![https://thcasey3.github.io/hanlab/](https://img.shields.io/pypi/v/hanlab)](https://pypi.org/project/hanlab/)
 [![Website](https://img.shields.io/website?down_message=offline&label=Documentation&up_message=online&url=https%3A%2F%2Fthcasey3.github.io%2Fhanlab%2Findex.html)](https://thcasey3.github.io/hanlab/)
+[![https://DNPLab.net](https://img.shields.io/badge/DNPLab-.net-green)](https://DNPLab.net)
 
-[Website](https://img.shields.io/badge/DNPLab-.net-green)](https://DNPLab.net)
 
 hanlab is an open-source Python package containing code used to process, fit, and analyze various types of DNP, NMR, and EPR data generated in the lab of Songi Han at UCSB.
 
