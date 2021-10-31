@@ -38,7 +38,7 @@ First import the odnp module of hanlab, dnplab, and numpy,
 
 .. GENERATED FROM PYTHON SOURCE LINES 20-21
 
-To use the odnp module first create a dictionary with the necessary inputs and add it to a dnplab workspace as **'hydration_inputs'**. For example, start by defining the inputs dictionary,
+To use the odnp module first create a dictionary with the necessary inputs. You may use odnp with DNPLab by creating a workspace and assinging the inputs dictionary to the key **'hydration_inputs'**. For example, start by defining the inputs dictionary,
 
 .. GENERATED FROM PYTHON SOURCE LINES 21-39
 
@@ -127,7 +127,7 @@ or operate in-place with:
 
 .. GENERATED FROM PYTHON SOURCE LINES 80-81
 
-For direct use without creating a dnplab workspace simply use,
+For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to odnp directly,
 
 .. GENERATED FROM PYTHON SOURCE LINES 81-82
 

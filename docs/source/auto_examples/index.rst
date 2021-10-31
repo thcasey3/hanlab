@@ -4,8 +4,8 @@
 
 .. _sphx_glr_auto_examples:
 
-hanlab Example
-==============
+hanlab Examples
+===============
 
 
 .. raw:: html

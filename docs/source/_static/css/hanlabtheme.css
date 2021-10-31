@@ -34,7 +34,7 @@ a:active{color: var(--lr-dark-blue);}
 .rst-content .warning{background: var(--lr-dark-blue);}
 
 /* Background for code snippets */
-.highlight{background: var(--lr-white);}
+.highlight{background: var(--lr-light-grey);}
 
 /* Border and background for functions */
 .rst-content dl:not(.docutils) dt{

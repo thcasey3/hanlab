@@ -148,8 +148,8 @@ Or if you instead gave inputs and constants directly:
 For explanation of 'smax_model' see https://doi.org/10.1039/c0cp02126a. For explanations of 'interpolate_method' options or any of the equations used to calculate the hydration parameters refer to http://dx.doi.org/10.1016/j.pnmrs.2013.06.001 and https://doi.org/10.1016/bs.mie.2018.09.024.
 
 
-Detailed Descriptions of Functions
-==================================
+Functions
+=========
 
 .. automodule:: hanlab.odnp
    :members:

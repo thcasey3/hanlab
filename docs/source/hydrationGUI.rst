@@ -5,8 +5,9 @@ hydrationGUI
 ============
 
 .. note::
-    PyQt5 is required to use this GUI. This has lead to some cross-platform problems. You may need to
-    install PyQt5 manually. In the event of errors, it is recommended you try PyQt5 version 5.14.
+    PyQt5 is required to use this GUI. This can lead to some cross-platform problems. You may need to
+    uninstall and re-install PyQt5 specifying version 5.14 (pip install PyQt5==5.14). If this does
+    not fix the problem, please report the issue using the Github issues tracker. 
     
 The hydrationGUI is currently designed to only work with the results of UCSB routines such as "rb_dnp1" used at the CNSI facility. 
 

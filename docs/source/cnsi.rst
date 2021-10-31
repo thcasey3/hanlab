@@ -4,14 +4,11 @@
 cnsi
 ====
 
-Summary
-=======
-
 The cnsi module contains functions used to process the microwave power measurement files generated. By 'rb_dnp1' at the CNSI facility.
 
 
-Detailed Descriptions of Functions
-==================================
+Functions
+=========
 
 .. automodule:: hanlab.cnsi
    :members:
