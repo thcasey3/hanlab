@@ -1,8 +1,8 @@
-.. _hydration:
+.. _odnp:
 
-=========
-hydration
-=========
+====
+odnp
+====
 
 This module implements the process of calculating parameters that describe hydration dynamics using ODNP data as described in various studies from Songi Han and John Franck. The calculations follow:
 
@@ -12,11 +12,13 @@ http://dx.doi.org/10.1016/j.pnmrs.2013.06.001
 J.M. Franck, S. Han; Methods in Enzymology, Chapter 5, Volume 615, (2019) 131-175
 https://doi.org/10.1016/bs.mie.2018.09.024
 
-To use the hydration module first create a dictionary with the necessary inputs and add it to a workspace as **'hydration_inputs'**. For example, start by defining the inputs dictionary,
+To use the odnp module first create a dictionary with the necessary inputs. You may add it to a DNPLab workspace as **'hydration_inputs'** or use the dictionary directly. For example, using DNPLab, start by defining the inputs dictionary,
 
 .. code-block:: python
 
-    import hanlab
+    import dnplab
+    from hanlab import odnp
+    import numpy as np
     
     Enhancements = # list of signal enhancements
     Enhancement_powers = # list of powers in Watts corresponding to Enhancements
@@ -37,7 +39,7 @@ To use the hydration module first create a dictionary with the necessary inputs 
               }
     
 
-Now you can either create a workspace and add the dictionary under the key **'hydration_inputs'**,
+Now you can either create a DNPLab workspace and add the dictionary under the key **'hydration_inputs'**,
 
 .. code-block:: python
 
@@ -51,7 +53,7 @@ Or add to an existing workspace,
     workspace.add('hydration_inputs', inputs)
 
 
-In rare cases the bulk water or second order T1 interpolation constants may need to be altered. This is not necessary for the hydration module to operate, but if needed this can be done by adding the dictionary **'hydration_constants'** to the workspace. For example,
+In rare cases the bulk water or second order T1 interpolation constants may need to be altered. This is not necessary for the odnp module to operate, but if needed this can be done by adding the dictionary **'hydration_constants'** to the workspace. For example,
 
 .. code-block:: python
     
@@ -70,21 +72,22 @@ In rare cases the bulk water or second order T1 interpolation constants may need
     workspace.add('hydration_constants', constants)
 
 
-Next, pass the workspace to hydration to perform calculations using,
+Next, pass the workspace to odnp.hydration to perform calculations using,
 
 .. code-block:: python
 
-    hydration_results = hanlab.hydration.hydration(workspace)
+    hydration_results = odnp.hydration(workspace)
+    #OR in-place with:
+    odnp.hydration(workspace)
 
-
-Or for in-place operation simply use,
+For direct use without creating a DNPLab workspace simply use,
 
 .. code-block:: python
 
-    hanlab.hydration.hydration(workspace)
+    hydration_results = odnp.hydration(inputs=inputs, constants=constants)
 
 
-If returned, **hydration_results** is a dictionary that has the elements listed in the table below. If only in-place operation, the workspace will now contain a **'hydration_results'** dictionary. *Note: even if the dictionary is returned, the 'hydration_results' dictionary is still added to the workspace*
+If returned, **hydration_results** is a dictionary that has the elements listed in the table below. If only in-place operation on a DNPLab workspace, the workspace will now contain a **'hydration_results'** dictionary. *Note: even if the dictionary is returned, the 'hydration_results' dictionary is still added to the workspace*
 
 +-------------------+-------------+------------------------------------------------------------------------------------------+
 | key               | type        | description                                                                              |
@@ -122,17 +125,7 @@ If returned, **hydration_results** is a dictionary that has the elements listed 
 | Dlocal            | float       | local diffusivity, D\ :sub:`local`, (m\ :sup:`2`/s), see Equations 18-20                 |   
 +-------------------+-------------+------------------------------------------------------------------------------------------+
 
-If needed, access the results individually as follows,
-
-.. code-block:: python
-     
-     interpolated_t1 = hydration_results['interpolated_T1']
-     ksigma_array = hydration_results['ksigma_array']     
-     ksigma = hydration_results['ksigma']
-     coupling_factor = hydration_results['coupling_factor']
-     etc.
-
-Or,
+If needed, access the results individually as follows, if you used a DNPLab workspace:
 
 .. code-block:: python
      
@@ -142,13 +135,23 @@ Or,
      coupling_factor = workspace['hydration_results']['coupling_factor']
      etc.
 
+Or if you instead gave inputs and constants directly:
+
+.. code-block:: python
+     
+     interpolated_t1 = hydration_results['interpolated_T1']
+     ksigma_array = hydration_results['ksigma_array']     
+     ksigma = hydration_results['ksigma']
+     coupling_factor = hydration_results['coupling_factor']
+     etc.
+
 For explanation of 'smax_model' see https://doi.org/10.1039/c0cp02126a. For explanations of 'interpolate_method' options or any of the equations used to calculate the hydration parameters refer to http://dx.doi.org/10.1016/j.pnmrs.2013.06.001 and https://doi.org/10.1016/bs.mie.2018.09.024.
 
 
 Detailed Descriptions of Functions
 ==================================
 
-.. automodule:: hanlab.hydration
+.. automodule:: hanlab.odnp
    :members:
    :show-inheritance:
    :member-order: bysource

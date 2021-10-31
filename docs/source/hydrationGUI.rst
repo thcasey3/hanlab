@@ -5,9 +5,10 @@ hydrationGUI
 ============
 
 .. note::
-    An earlier version of DNPLab required installing PyQt5 to use the GUI of the hydration module. This has lead to some cross-platform problems. If you would like to use the GUI of the hydration module, you need to install PyQt5 manually.
+    PyQt5 is required to use this GUI. This has lead to some cross-platform problems. You may need to
+    install PyQt5 manually. In the event of errors, it is recommended you try PyQt5 version 5.14.
     
-The hydrationGUI is designed to work with the results of UCSB routines such as "rb_dnp1" used at the CNSI facility. 
+The hydrationGUI is currently designed to only work with the results of UCSB routines such as "rb_dnp1" used at the CNSI facility. 
 
 To start the hydrationGUI type the command:
 
@@ -25,7 +26,7 @@ To start the hydrationGUI type the command:
 Processing a single topspin data folder, either a 1D spectrum or 2D inversion recovery 
 ======================================================================================
 
-To work on a single topspin spectrum use the **Get Directory** button to select a numbered folder containing a single spectrum, either 1D or 2D. You may make adjustments to the data phase and integration window using the sliders and edit box or the windowing linewidth using the edit box. Use the “Optimize” checkboxes to search for and apply the “optimal” parameters. For inversion recovery experiments the yellow markers in the top right hand plot are the imaginary parts of the integrals. The optimal integration window parameters and phase should result in all of these points occurring close to 0. See :ref:`dnpFit <dnpFit>` for the T\ :sub:`1` fit function.
+To work on a single topspin spectrum use the **Get Directory** button to select a numbered folder containing a single spectrum, either 1D or 2D. You may make adjustments to the data phase and integration window using the sliders and edit box or the windowing linewidth using the edit box. Use the “Optimize” checkboxes to search for and apply the “optimal” parameters. For inversion recovery experiments the yellow markers in the top right hand plot are the imaginary parts of the integrals. The optimal integration window parameters and phase should result in all of these points occurring close to 0. See :ref:`odnp <odnp>` for the T\ :sub:`1` fit function.
 
 .. figure:: _static/images/hydrationGUI_importing_1d_2d.png
     :width: 720
@@ -90,7 +91,7 @@ You may make adjustments to the data phase, integration window width, and integr
 
     Presentation of dnpHydration results
 
-The results are displayed when finished. If a “Workup” is also present in the data folder it will be imported for comparison. Use the corresponding checkboxes to interact with the Workup results. Interaction with any parameter edit field or checkbox, as well as the T1 interpolation checkboxes, automatically updates the calculations. Click :ref:`dnpHydration <dnpHydration>` to see how the data are arranged by the GUI and used to calculate hydration parameters.
+The results are displayed when finished. If a “Workup” is also present in the data folder it will be imported for comparison. Use the corresponding checkboxes to interact with the Workup results. Interaction with any parameter edit field or checkbox, as well as the T1 interpolation checkboxes, automatically updates the calculations. Click :ref:`odnp <odnp>` to see how the data are arranged by the GUI and used to calculate hydration parameters.
 
 The **Restart** button will return you to the beginning of processing. If the **Only T1(0)** checkbox is selected, Restart will return you to the final folder that is the T\ :sub:`1` (0) measurement while all other processing will be retained. If the **Only T1(p)** checkbox is selected you will return to the beginning of the series of T\ :sub:`1` measurements and previous processing of the enhancement points is retained. 
 
@@ -206,6 +207,6 @@ The terminal will display processing and calculation progress as well as standar
 Saving Results
 ==============
 
-After processing is complete and hydration parameters are calculated, the **Save** button is available. Your results are saved in .csv, .h5, and .mat formats. The .h5 and .mat files can be imported by hydrationGUI. The .mat file can be imported by the MATLAB app called xODNP that is available at MathWorks File Exchange: https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp. See :ref:`dnpHydration <dnpHydration>` for explanation of the saved inputs/results object.
+After processing is complete and hydration parameters are calculated, the **Save** button is available. Your results are saved in .csv, .h5, and .mat formats. The .h5 and .mat files can be imported by hydrationGUI. The .mat file can be imported by the MATLAB app called xODNP that is available at MathWorks File Exchange: https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp. See :ref:`odnp <odnp>` for explanation of the saved inputs/results object.
 
 

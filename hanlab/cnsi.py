@@ -7,8 +7,7 @@ from scipy.io import loadmat
 
 
 def get_powers(path, power_file, experiment_list):
-    """
-    Split power readings files into array of power measurements equal in length to number of spectra in dataset
+    """Split power readings files into array of power measurements equal in length to number of spectra in dataset
 
     Args:
         path (str) : Path to base folder containing power file

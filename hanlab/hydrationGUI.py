@@ -37,6 +37,7 @@ from scipy.io import loadmat, savemat
 import copy
 
 import dnplab
+from hanlab import odnp, cnsi
 
 
 class hydrationGUI(QMainWindow):
@@ -1285,7 +1286,7 @@ class hydrationGUI(QMainWindow):
                 ):
                     print("Workup not loaded, using power readings files.")
                     try:
-                        E_power_List = dnplab.dnpIO.cnsi.get_powers(
+                        E_power_List = cnsi.get_powers(
                             pthnm,
                             "power",
                             self.gui_dict["folder_structure"]["enh"],
@@ -1296,7 +1297,7 @@ class hydrationGUI(QMainWindow):
                         )
                         # }}
 
-                        T1_power_List = dnplab.dnpIO.cnsi.get_powers(
+                        T1_power_List = cnsi.get_powers(
                             pthnm,
                             "t1_powers",
                             self.gui_dict["folder_structure"]["T1"],
@@ -2269,7 +2270,7 @@ class hydrationGUI(QMainWindow):
             T10 = float(self.t10Edit.text())
             if self.freeCheckbox.isChecked():
                 smax_model = "free"
-                self.wrkup_smax = dnplab.dnpHydration.calculate_smax(spin_C)
+                self.wrkup_smax = odnp.hydration.calculate_smax(spin_C)
                 self.smaxEdit.setText(str(round(self.wrkup_smax, 3)))
             elif self.tetheredCheckbox.isChecked():
                 smax_model = "tethered"
@@ -2285,7 +2286,7 @@ class hydrationGUI(QMainWindow):
                         self.tetheredCheckbox.setChecked(True)
                         self.freeCheckbox.setChecked(False)
                     elif smax_model == "free":
-                        self.wrkup_smax = dnplab.dnpHydration.calculate_smax(spin_C)
+                        self.wrkup_smax = odnp.hydration.calculate_smax(spin_C)
                         self.tetheredCheckbox.setChecked(False)
                         self.freeCheckbox.setChecked(True)
                     else:
@@ -2363,7 +2364,7 @@ class hydrationGUI(QMainWindow):
             hyd = dnplab.create_workspace("hydration_inputs", hydration)
 
             try:
-                self.gui_dict["hydration_results"] = dnplab.dnpHydration.hydration(hyd)
+                self.gui_dict["hydration_results"] = odnp.hydration(hyd)
                 self.addHyd_workspace = copy.deepcopy(hyd)
                 self.addHyd_workspace.add(
                     "hydration_results", self.gui_dict["hydration_results"]
@@ -2445,9 +2446,7 @@ class hydrationGUI(QMainWindow):
                 whyd = dnplab.create_workspace("hydration_inputs", whydration)
 
                 try:
-                    self.gui_dict[
-                        "workup_hydration_results"
-                    ] = dnplab.dnpHydration.hydration(whyd)
+                    self.gui_dict["workup_hydration_results"] = odnp.hydration(whyd)
                     if (
                         self.gui_dict["workup_function"]["fit"]
                         or self.gui_dict["gui_function"]["isWorkup"]
