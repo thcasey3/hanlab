@@ -13,7 +13,7 @@
 .. |IssuesTracker| image:: https://img.shields.io/badge/GitHub-Issues-yellow?style=flat-square
     :target: https://github.com/thcasey3/hanlab/issues
 
-.. |DNPlab| image:: https://img.shields.io/badge/DNPLab-.net-green
+.. |DNPlab| image:: https://img.shields.io/badge/DNPLab-.net-brightgreen
     :target: http://dnplab.net/
 
 |pypi| |GitHub| |IssuesTracker| |DNPLab|
