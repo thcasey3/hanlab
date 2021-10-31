@@ -1,0 +1,58 @@
+:root {
+    --lr-dark-blue:           #13355D;
+    --lr-yellow:              #F3BF46;
+    --lr-white:               #FFFFFF;
+    --lr-mid-grey:            #7E7E7E;
+    --lr-light-grey:          #d9d9d9;
+    --lr-blue:                #1768E2;
+}
+
+/* General Settings */
+a{color: var(--lr-dark-blue);}
+a:visited{color: var(--lr-dark-blue);}
+a:hover{color: var(--lr-mid-grey);}
+a:active{color: var(--lr-dark-blue);}
+
+/* Side Panel  */
+.wy-side-nav-search{background-color: var(--lr-light-grey);} /* logo area background */
+.wy-side-nav-search a{color: var(--lr-orange);} /* home logo and name */
+
+.wy-nav-top{background: var(--lr-dark-blue);}
+.wy-nav-side{background: var(--lr-light-grey);} /* menu background */
+
+.wy-menu-vertical p.caption {
+    color: var(--lr-dark-blue);
+    font-weight: bold;
+}
+.wy-menu-vertical a{color: var(--lr-dark-blue);}
+.wy-menu-vertical  a:active{background: var(--lr-dark-blue);}
+
+/* Note and warning top and backround */
+.rst-content .note .admonition-title{background: var(--lr-blue);}
+.rst-content .note {background: var(--lr-white);}
+.rst-content .warning .admonition-title{background: var(--lr-dark-blue);}
+.rst-content .warning{background: var(--lr-dark-blue);}
+
+/* Background for code snippets */
+.highlight{background: var(--lr-light-grey);}
+
+/* Border and background for functions */
+.rst-content dl:not(.docutils) dt{
+    border-top-color: var(--lr-light-grey);
+    background-color: var(--lr-light-grey);
+    color: var(--lr-black);
+}
+
+/* override table width restrictions */
+@media screen and (min-width: 767px) {
+
+    .wy-table-responsive table td {
+       /* !important prevents the common CSS stylesheets from overriding
+          this as on RTD they are loaded after this stylesheet */
+       white-space: normal !important;
+    }
+ 
+    .wy-table-responsive {
+       overflow: visible !important;
+    }
+ }
