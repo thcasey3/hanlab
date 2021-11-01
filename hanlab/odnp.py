@@ -542,7 +542,7 @@ class hydration:
         }
 
     def odnp_dnplab(self, workspace):
-        """Function for calculating hydration quantities
+        """Function for calculating hydration quantities using a DNPLab workspace
 
         J.M. Franck et al.; Progress in Nuclear Magnetic Resonance Spectroscopy 74 (2013) 33–56
         http://dx.doi.org/10.1016/j.pnmrs.2013.06.001
