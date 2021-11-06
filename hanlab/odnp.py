@@ -10,8 +10,8 @@ class hydration:
 
     Args:
         workspace (dnpdata_collection)  : workspace or dictionary with 'hydration_inputs'
-        inputs (dict)                   : keys and values described in example above
-        constants (optional) (dict)     : keys and values described in example above
+        inputs (dict)                   : keys and values described in example
+        constants (optional) (dict)     : keys and values described in example
 
     Returns:
         results (dict)                  : 'hydration_results' dictionary if dnpdata_collection, dict otherwise
@@ -382,11 +382,11 @@ class hydration:
         https://doi.org/10.1016/bs.mie.2018.09.024
 
         Args:
-            inputs (dict)                   : keys and values described in example above
-            constants (optional) (dict)     : keys and values described in example above
+            inputs (dict)                   : keys and values described in example
+            constants (optional) (dict)     : keys and values described in example
 
         Returns:
-            hydration_results (dict)        : keys and values described in table above
+            hydration_results (dict)        : calculated parameters
 
         """
 
@@ -551,10 +551,10 @@ class hydration:
         https://doi.org/10.1016/bs.mie.2018.09.024
 
         Args:
-            workspace (dnpdata_collection): workspace or dictionary with 'hydration_inputs', see above
+            workspace (dnpdata_collection): workspace or dictionary with 'hydration_inputs'
 
         Returns:
-            results (dict)                : 'hydration_results' dictionary, see above
+            results (dict)                : 'hydration_results' dictionary
 
         Raises:
             TypeError: If 'hydration_inputs' dictionary is missing
