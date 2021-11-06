@@ -41,7 +41,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="cnsi" href="cnsi.html" />
-    <link rel="prev" title="odnp" href="odnp.html" /> 
+    <link rel="prev" title="hydration" href="hydration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,7 +95,7 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Installing hanlab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="odnp.html">odnp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hydration.html">hydration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">hydrationGUI</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#processing-a-single-topspin-data-folder-either-a-1d-spectrum-or-2d-inversion-recovery">Processing a single topspin data folder, either a 1D spectrum or 2D inversion recovery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#processing-han-lab-datasets">Processing Han lab datasets</a></li>
@@ -105,6 +105,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cnsi.html">cnsi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odnp.html">odnp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">hanlab Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="version_history.html">Version History</a></li>
 </ul>
@@ -191,7 +192,7 @@ not fix the problem, please report the issue using the Github issues tracker.</p
 </div>
 <div class="section" id="processing-a-single-topspin-data-folder-either-a-1d-spectrum-or-2d-inversion-recovery">
 <h2>Processing a single topspin data folder, either a 1D spectrum or 2D inversion recovery<a class="headerlink" href="#processing-a-single-topspin-data-folder-either-a-1d-spectrum-or-2d-inversion-recovery" title="Permalink to this headline">¶</a></h2>
-<p>To work on a single topspin spectrum use the <strong>Get Directory</strong> button to select a numbered folder containing a single spectrum, either 1D or 2D. You may make adjustments to the data phase and integration window using the sliders and edit box or the windowing linewidth using the edit box. Use the “Optimize” checkboxes to search for and apply the “optimal” parameters. For inversion recovery experiments the yellow markers in the top right hand plot are the imaginary parts of the integrals. The optimal integration window parameters and phase should result in all of these points occurring close to 0. See <a class="reference internal" href="odnp.html#odnp"><span class="std std-ref">odnp</span></a> for the T<sub>1</sub> fit function.</p>
+<p>To work on a single topspin spectrum use the <strong>Get Directory</strong> button to select a numbered folder containing a single spectrum, either 1D or 2D. You may make adjustments to the data phase and integration window using the sliders and edit box or the windowing linewidth using the edit box. Use the “Optimize” checkboxes to search for and apply the “optimal” parameters. For inversion recovery experiments the yellow markers in the top right hand plot are the imaginary parts of the integrals. The optimal integration window parameters and phase should result in all of these points occurring close to 0. See <a class="reference internal" href="hydration.html#hydration"><span class="std std-ref">hydration</span></a> for the T<sub>1</sub> fit function.</p>
 <div class="figure align-center" id="id3">
 <a class="reference internal image-reference" href="_images/hydrationGUI_importing_1d_2d.png"><img alt="Loading 1D or 2D data" src="_images/hydrationGUI_importing_1d_2d.png" style="width: 720px;" /></a>
 <p class="caption"><span class="caption-text">Selecting data folder</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
@@ -255,7 +256,7 @@ not fix the problem, please report the issue using the Github issues tracker.</p
 <a class="reference internal image-reference" href="_images/hydrationGUI_ksigma.png"><img alt="Generating dnpHydration Results" src="_images/hydrationGUI_ksigma.png" style="width: 720px;" /></a>
 <p class="caption"><span class="caption-text">Presentation of dnpHydration results</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
-<p>The results are displayed when finished. If a “Workup” is also present in the data folder it will be imported for comparison. Use the corresponding checkboxes to interact with the Workup results. Interaction with any parameter edit field or checkbox, as well as the T1 interpolation checkboxes, automatically updates the calculations. Click <a class="reference internal" href="odnp.html#odnp"><span class="std std-ref">odnp</span></a> to see how the data are arranged by the GUI and used to calculate hydration parameters.</p>
+<p>The results are displayed when finished. If a “Workup” is also present in the data folder it will be imported for comparison. Use the corresponding checkboxes to interact with the Workup results. Interaction with any parameter edit field or checkbox, as well as the T1 interpolation checkboxes, automatically updates the calculations. Click <a class="reference internal" href="hydration.html#hydration"><span class="std std-ref">hydration</span></a> to see how the data are arranged by the GUI and used to calculate hydration parameters.</p>
 <p>The <strong>Restart</strong> button will return you to the beginning of processing. If the <strong>Only T1(0)</strong> checkbox is selected, Restart will return you to the final folder that is the T<sub>1</sub> (0) measurement while all other processing will be retained. If the <strong>Only T1(p)</strong> checkbox is selected you will return to the beginning of the series of T<sub>1</sub> measurements and previous processing of the enhancement points is retained.</p>
 </div>
 <div class="section" id="analyzing-workup-results-or-previously-saved-gui-results">
@@ -425,7 +426,7 @@ not fix the problem, please report the issue using the Github issues tracker.</p
 </div>
 <div class="section" id="saving-results">
 <h2>Saving Results<a class="headerlink" href="#saving-results" title="Permalink to this headline">¶</a></h2>
-<p>After processing is complete and hydration parameters are calculated, the <strong>Save</strong> button is available. Your results are saved in .csv, .h5, and .mat formats. The .h5 and .mat files can be imported by hydrationGUI. The .mat file can be imported by the MATLAB app called xODNP that is available at MathWorks File Exchange: <a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp">https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp</a>. See <a class="reference internal" href="odnp.html#odnp"><span class="std std-ref">odnp</span></a> for explanation of the saved inputs/results object.</p>
+<p>After processing is complete and hydration parameters are calculated, the <strong>Save</strong> button is available. Your results are saved in .csv, .h5, and .mat formats. The .h5 and .mat files can be imported by hydrationGUI. The .mat file can be imported by the MATLAB app called xODNP that is available at MathWorks File Exchange: <a class="reference external" href="https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp">https://www.mathworks.com/matlabcentral/fileexchange/73293-xodnp</a>. See <a class="reference internal" href="hydration.html#hydration"><span class="std std-ref">hydration</span></a> for explanation of the saved inputs/results object.</p>
 </div>
 </div>
 
@@ -440,7 +441,7 @@ not fix the problem, please report the issue using the Github issues tracker.</p
         <a href="cnsi.html" class="btn btn-neutral float-right" title="cnsi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="odnp.html" class="btn btn-neutral float-left" title="odnp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="hydration.html" class="btn btn-neutral float-left" title="hydration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

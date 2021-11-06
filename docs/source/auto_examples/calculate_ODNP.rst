@@ -18,29 +18,28 @@
 .. _sphx_glr_auto_examples_calculate_ODNP.py:
 
 
-calculate ODNP
-==============
+calculate ODNP using DNPLab
+===========================
 
-This example demonstrates how to use the odnp module
+This example demonstrates how to use the dnplab.dnpHydration module
 
 .. GENERATED FROM PYTHON SOURCE LINES 12-13
 
-First import the odnp module of hanlab, dnplab, and numpy,
+First import dnplab and numpy,
 
-.. GENERATED FROM PYTHON SOURCE LINES 13-17
+.. GENERATED FROM PYTHON SOURCE LINES 13-16
 
 .. code-block:: default
 
     import dnplab
-    from hanlab import odnp
     import numpy as np
 
 
-.. GENERATED FROM PYTHON SOURCE LINES 20-21
+.. GENERATED FROM PYTHON SOURCE LINES 19-20
 
-To use the odnp module first create a dictionary with the necessary inputs. You may use odnp with DNPLab by creating a workspace and assinging the inputs dictionary to the key **'hydration_inputs'**. For example, start by defining the inputs dictionary,
+To use the dnpHydration module first create a dictionary with the necessary inputs. Start by creating a workspace and assinging an inputs dictionary to the key **'hydration_inputs'**. For example,
 
-.. GENERATED FROM PYTHON SOURCE LINES 21-39
+.. GENERATED FROM PYTHON SOURCE LINES 20-38
 
 .. code-block:: default
 
@@ -63,31 +62,31 @@ To use the odnp module first create a dictionary with the necessary inputs. You 
               'interpolate_method': 'second_order' # choice of interpolation method
               }
 
-.. GENERATED FROM PYTHON SOURCE LINES 42-43
+.. GENERATED FROM PYTHON SOURCE LINES 41-42
 
 Now you can either create a workspace and add the dictionary under the key **'hydration_inputs'**,
 
-.. GENERATED FROM PYTHON SOURCE LINES 43-44
+.. GENERATED FROM PYTHON SOURCE LINES 42-43
 
 .. code-block:: default
 
     workspace = dnplab.create_workspace('hydration_inputs', inputs)
 
-.. GENERATED FROM PYTHON SOURCE LINES 47-48
+.. GENERATED FROM PYTHON SOURCE LINES 46-47
 
 Or add to an existing workspace,
 
-.. GENERATED FROM PYTHON SOURCE LINES 48-49
+.. GENERATED FROM PYTHON SOURCE LINES 47-48
 
 .. code-block:: default
 
     workspace.add('hydration_inputs', inputs)
 
-.. GENERATED FROM PYTHON SOURCE LINES 52-53
+.. GENERATED FROM PYTHON SOURCE LINES 51-52
 
 In rare cases the bulk water or second order T1 interpolation constants may need to be altered. This is not necessary for the odnp module to operate, but if needed this can be done by adding the dictionary **'hydration_constants'** to the workspace. For example,
 
-.. GENERATED FROM PYTHON SOURCE LINES 53-66
+.. GENERATED FROM PYTHON SOURCE LINES 52-65
 
 .. code-block:: default
 
@@ -105,35 +104,35 @@ In rare cases the bulk water or second order T1 interpolation constants may need
 
     workspace.add('hydration_constants', constants)
 
+.. GENERATED FROM PYTHON SOURCE LINES 68-69
+
+Next, pass the workspace to dnplab.dnpHydration.hydration to perform calculations using,
+
 .. GENERATED FROM PYTHON SOURCE LINES 69-70
-
-Next, pass the workspace to odnp.hydration to perform calculations using,
-
-.. GENERATED FROM PYTHON SOURCE LINES 70-71
 
 .. code-block:: default
 
-    hydration_results = odnp.hydration(workspace)
+    hydration_results = dnplab.dnpHydration.hydration(workspace)
 
-.. GENERATED FROM PYTHON SOURCE LINES 74-75
+.. GENERATED FROM PYTHON SOURCE LINES 73-74
 
 or operate in-place with:
 
-.. GENERATED FROM PYTHON SOURCE LINES 75-76
+.. GENERATED FROM PYTHON SOURCE LINES 74-75
 
 .. code-block:: default
 
-    odnp.hydration(workspace)
+    dnplab.dnpHydration.hydration(workspace)
+
+.. GENERATED FROM PYTHON SOURCE LINES 79-80
+
+For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to dnpHydration directly,
 
 .. GENERATED FROM PYTHON SOURCE LINES 80-81
 
-For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to odnp directly,
-
-.. GENERATED FROM PYTHON SOURCE LINES 81-82
-
 .. code-block:: default
 
-    hydration_results = odnp.hydration(inputs=inputs, constants=constants)
+    hydration_results = dnplab.dnpHydration.odnp(inputs=inputs, constants=constants)
 
 
 .. rst-class:: sphx-glr-timing

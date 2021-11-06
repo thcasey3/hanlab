@@ -10,12 +10,12 @@ hanlab Examples
 
 .. raw:: html
 
-    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the odnp module">
+    <div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to use the dnplab.dnpHydration module">
 
 .. only:: html
 
  .. figure:: /auto_examples/images/thumb/sphx_glr_calculate_ODNP_thumb.png
-     :alt: calculate ODNP
+     :alt: calculate ODNP using DNPLab
 
      :ref:`sphx_glr_auto_examples_calculate_ODNP.py`
 

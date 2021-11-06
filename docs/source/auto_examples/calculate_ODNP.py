@@ -1,23 +1,22 @@
 # %% [markdown]
 """
-calculate ODNP
-==============
+calculate ODNP using DNPLab
+===========================
 
-This example demonstrates how to use the odnp module
+This example demonstrates how to use the dnplab.dnpHydration module
 
 """
 # %%
 
 # %% [markdown]
-# First import the odnp module of hanlab, dnplab, and numpy,
+# First import dnplab and numpy,
 import dnplab
-from hanlab import odnp
 import numpy as np
 
 # %%
 
 # %% [markdown]
-# To use the odnp module first create a dictionary with the necessary inputs. You may use odnp with DNPLab by creating a workspace and assinging the inputs dictionary to the key **'hydration_inputs'**. For example, start by defining the inputs dictionary,
+# To use the dnpHydration module first create a dictionary with the necessary inputs. Start by creating a workspace and assinging an inputs dictionary to the key **'hydration_inputs'**. For example,
 
 Enhancements = [] # list of signal enhancements
 Enhancement_powers = [] # list of powers in Watts corresponding to Enhancements
@@ -66,17 +65,17 @@ workspace.add('hydration_constants', constants)
 # %%
 
 # %% [markdown]
-# Next, pass the workspace to odnp.hydration to perform calculations using,
-hydration_results = odnp.hydration(workspace)
+# Next, pass the workspace to dnplab.dnpHydration.hydration to perform calculations using,
+hydration_results = dnplab.dnpHydration.hydration(workspace)
 # %%
 
 # %% [markdown]
 # or operate in-place with:
-odnp.hydration(workspace)
+dnplab.dnpHydration.hydration(workspace)
 # %%
 
 
 # %% [markdown]
-# For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to odnp directly,
-hydration_results = odnp.hydration(inputs=inputs, constants=constants)
+# For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to dnpHydration directly,
+hydration_results = dnplab.dnpHydration.odnp(inputs=inputs, constants=constants)
 # %%

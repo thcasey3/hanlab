@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>calculate ODNP &mdash; hanlab  documentation</title>
+  <title>calculate ODNP using DNPLab &mdash; hanlab  documentation</title>
   
 
   
@@ -95,11 +95,12 @@
             
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Installing hanlab</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../odnp.html">odnp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydration.html">hydration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hydrationGUI.html">hydrationGUI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../cnsi.html">cnsi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../odnp.html">odnp</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">hanlab Examples</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">calculate ODNP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">calculate ODNP using DNPLab</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../version_history.html">Version History</a></li>
@@ -151,7 +152,7 @@
         
           <li><a href="index.html">hanlab Examples</a> &raquo;</li>
         
-      <li>calculate ODNP</li>
+      <li>calculate ODNP using DNPLab</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,16 +176,15 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-calculate-odnp-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="calculate-odnp">
-<span id="sphx-glr-auto-examples-calculate-odnp-py"></span><h1>calculate ODNP<a class="headerlink" href="#calculate-odnp" title="Permalink to this headline">¶</a></h1>
-<p>This example demonstrates how to use the odnp module</p>
-<p>First import the odnp module of hanlab, dnplab, and numpy,</p>
+<div class="sphx-glr-example-title section" id="calculate-odnp-using-dnplab">
+<span id="sphx-glr-auto-examples-calculate-odnp-py"></span><h1>calculate ODNP using DNPLab<a class="headerlink" href="#calculate-odnp-using-dnplab" title="Permalink to this headline">¶</a></h1>
+<p>This example demonstrates how to use the dnplab.dnpHydration module</p>
+<p>First import dnplab and numpy,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">dnplab</span>
-<span class="kn">from</span> <span class="nn">hanlab</span> <span class="kn">import</span> <span class="n">odnp</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>To use the odnp module first create a dictionary with the necessary inputs. You may use odnp with DNPLab by creating a workspace and assinging the inputs dictionary to the key <strong>'hydration_inputs'</strong>. For example, start by defining the inputs dictionary,</p>
+<p>To use the dnpHydration module first create a dictionary with the necessary inputs. Start by creating a workspace and assinging an inputs dictionary to the key <strong>'hydration_inputs'</strong>. For example,</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Enhancements</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of signal enhancements</span>
 <span class="n">Enhancement_powers</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of powers in Watts corresponding to Enhancements</span>
 <span class="n">T1s</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of T1 values in seconds</span>
@@ -228,16 +228,16 @@ to download the full example code</p>
 <span class="n">workspace</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;hydration_constants&#39;</span><span class="p">,</span> <span class="n">constants</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Next, pass the workspace to odnp.hydration to perform calculations using,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydration_results</span> <span class="o">=</span> <span class="n">odnp</span><span class="o">.</span><span class="n">hydration</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
+<p>Next, pass the workspace to dnplab.dnpHydration.hydration to perform calculations using,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydration_results</span> <span class="o">=</span> <span class="n">dnplab</span><span class="o">.</span><span class="n">dnpHydration</span><span class="o">.</span><span class="n">hydration</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>or operate in-place with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">odnp</span><span class="o">.</span><span class="n">hydration</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dnplab</span><span class="o">.</span><span class="n">dnpHydration</span><span class="o">.</span><span class="n">hydration</span><span class="p">(</span><span class="n">workspace</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to odnp directly,</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydration_results</span> <span class="o">=</span> <span class="n">odnp</span><span class="o">.</span><span class="n">hydration</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">constants</span><span class="o">=</span><span class="n">constants</span><span class="p">)</span>
+<p>For use without creating a DNPLab workspace simply skip the above steps and pass the dictionaries to dnpHydration directly,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydration_results</span> <span class="o">=</span> <span class="n">dnplab</span><span class="o">.</span><span class="n">dnpHydration</span><span class="o">.</span><span class="n">odnp</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">inputs</span><span class="p">,</span> <span class="n">constants</span><span class="o">=</span><span class="n">constants</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>

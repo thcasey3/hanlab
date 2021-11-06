@@ -18,16 +18,15 @@
 
 |pypi| |GitHub| |IssuesTracker|
 
-**hanlab** is an open-source Python package containing code used to process, fit, and analyze various types of DNP, NMR, and EPR data generated in the lab of Songi Han at UCSB.
-
-The hydrationGUI is dependent on the DNPLab package for processing NMR data. For information on DNPLab please visit the documentation site by clicking on the logo:
-
 .. figure:: _static/images/DNPLablogo.png
     :target: http://dnplab.net/
     :width: 200
-    :alt: Opening hydrationGUI
+    :alt: DNPLab
     :align: right
 
+**hanlab** is an open-source Python package containing code used to process, fit, and analyze various types of DNP, NMR, and EPR data generated in the lab of Songi Han at UCSB.
+
+**hanlab** is dependent on the DNPLab package. For information on installing and using DNPLab please visit the documentation site:
 
 hanlab Guide
 ============
@@ -36,9 +35,10 @@ hanlab Guide
    :maxdepth: 1
 
    install
-   odnp
+   hydration
    hydrationGUI
    cnsi
+   odnp
    auto_examples/index
    version_history
 
