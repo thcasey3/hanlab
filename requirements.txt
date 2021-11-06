@@ -1,6 +1,6 @@
-dnplab
-numpy
-scipy
-PyQt5
+dnplab>=1.0
+numpy>=1.19
+scipy>=1.5
+PyQt5==5.14
 
 
