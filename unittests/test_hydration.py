@@ -1,6 +1,7 @@
 import unittest
 import numpy as np
 import hanlab
+import dnplab as dnp
 
 
 TESTSET = {
