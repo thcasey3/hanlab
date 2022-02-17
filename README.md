@@ -9,11 +9,11 @@ hanlab is an open-source Python package containing code used to process, fit, an
 # Requirements
 
   - Python 3.6 or Later
-  - dnplab, numpy, scipy, PyQt5==5.14
+  - dnplab==1.0.11, numpy, scipy, PyQt5==5.14
 
 Install the required packages using pip:
 ```console
-pip install dnplab numpy scipy PyQt5==5.14
+pip install dnplab==1.0.11 numpy scipy PyQt5==5.14
 ```
 
 # Installation
