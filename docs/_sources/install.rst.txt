@@ -29,7 +29,7 @@ To install the required packages with pip use the command:
 
 .. code-block:: bash
 
-   $ pip install dnplab numpy scipy pyqt5==5.14
+   $ pip install dnplab==1.0.11 numpy scipy pyqt5==5.14
 
 
 .. _installing:
