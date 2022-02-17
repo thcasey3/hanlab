@@ -17,7 +17,7 @@ The following packages are required in order to use all features of hanlab:
    * - **Package**
      - **Version**
    * - dnplab
-     - 1.0+
+     - 2.0+
    * - numpy
      - 1.19+
    * - scipy
