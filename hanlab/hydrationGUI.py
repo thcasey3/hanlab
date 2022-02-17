@@ -732,7 +732,7 @@ class hydrationGUI(QMainWindow):
         indx = range(starting_center - 50, starting_center + 50)
         optcenter_workspace = self.phs_workspace(optcenter_workspace, phase)
         for k in indx:
-            dnplab.dnpTools.integrate(
+            dnplab.processing.integration.integrate(
                 optcenter_workspace,
                 integrate_center=k,
                 integrate_width=width,
@@ -776,7 +776,7 @@ class hydrationGUI(QMainWindow):
                 self.processing_workspace = self.phs_workspace(
                     self.processing_workspace, k
                 )
-                dnplab.dnpTools.integrate(
+                dnplab.processing.integration.integrate(
                     self.processing_workspace,
                     integrate_center=starting_center,
                     integrate_width=width * 2,
@@ -1409,7 +1409,7 @@ class hydrationGUI(QMainWindow):
                 self.processing_workspace, self.gui_dict["processing_spec"]["phase"]
             )
 
-            dnplab.dnpTools.integrate(
+            dnplab.processing.integration.integrate(
                 nextproc_workspace,
                 integrate_center=self.gui_dict["processing_spec"]["integration_center"],
                 integrate_width=self.gui_dict["processing_spec"]["integration_width"],
@@ -1953,7 +1953,7 @@ class hydrationGUI(QMainWindow):
             adjslider_workspace, self.gui_dict["processing_spec"]["phase"]
         )
 
-        dnplab.dnpTools.integrate(
+        dnplab.processing.integration.integrate(
             adjslider_workspace,
             integrate_center=self.gui_dict["processing_spec"]["integration_center"],
             integrate_width=self.gui_dict["processing_spec"]["integration_width"],
