@@ -862,7 +862,7 @@ class hydrationGUI(QMainWindow):
     @staticmethod
     def import_create_workspace(dir, type):
 
-        data = dnplab.dnpImport.load(dir, data_type=type)
+        data = dnplab.load(dir, data_type=type)
         workspace = dnplab.create_workspace("raw", data)
         workspace.copy("raw", "proc")
 
@@ -964,7 +964,7 @@ class hydrationGUI(QMainWindow):
             )
 
         elif "h5" in exten:
-            h5in = dnplab.dnpImport.load(self.flname, data_type="h5")
+            h5in = dnplab.load(self.flname, data_type="h5")
 
             if "T100_stdd" not in h5in["hydration_results"].keys():
                 h5in["hydration_results"]["T100_stdd"] = 0
@@ -1152,7 +1152,7 @@ class hydrationGUI(QMainWindow):
         )
         self.singlefolder = x[len(x) - 1]
 
-        data = dnplab.dnpImport.load(self.flname)
+        data = dnplab.load(self.flname)
         self.dnpLab_workspace = dnplab.create_workspace("raw", data)
         self.dnpLab_workspace.copy("raw", "proc")
 
