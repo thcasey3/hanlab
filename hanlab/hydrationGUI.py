@@ -732,7 +732,7 @@ class hydrationGUI(QMainWindow):
         indx = range(starting_center - 50, starting_center + 50)
         optcenter_workspace = self.phs_workspace(optcenter_workspace, phase)
         for k in indx:
-            optcenter_workspace['integrals'] = dnplab.processing.integration.integrate(
+            optcenter_workspace['integrals'] = dnplab.integrate(
                 optcenter_workspace['proc'],
                 regions = [(k-width/2,k+width/2)]
             )
