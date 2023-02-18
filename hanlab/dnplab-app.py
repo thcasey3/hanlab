@@ -27,9 +27,7 @@ sidebar = html.Div(
     [
         html.H2("hanlab", className="display-4"),
         html.Hr(),
-        html.P(
-            "Use DNPLab to process ODNP, NMR, and DNP data", className="lead"
-        ),
+        html.P("Use DNPLab to process ODNP, NMR, and DNP data", className="lead"),
         dbc.Nav(
             [
                 dbc.NavLink("Home", href="/", active="exact"),
@@ -43,7 +41,14 @@ sidebar = html.Div(
     style=SIDEBAR_STYLE,
 )
 
-content = html.Div(id="page-content", style=CONTENT_STYLE)
+content = html.Div(
+    id="page-content",
+    children=[
+        html.Div([dcc.Upload(id="upload-data")]),
+        html.Span(id="cnsi-output", style={"verticalAlign": "middle"}),
+    ],
+    style=CONTENT_STYLE,
+)
 
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
@@ -55,30 +60,31 @@ def render_page_content(pathname):
     elif pathname == "/cnsi-workups":
         return html.Div(
             [
-                html.Div([
-                    dcc.Upload(
-                        id='upload-data',
-                        children=html.Div([
-                            'Drag and Drop or ',
-                            html.A('Select Files')
-                        ]),
-                        style={
-                            'width': '100%',
-                            'height': '60px',
-                            'lineHeight': '60px',
-                            'borderWidth': '1px',
-                            'borderStyle': 'dashed',
-                            'borderRadius': '5px',
-                            'textAlign': 'center',
-                            'margin': '10px'
-                        },
-                        # Allow multiple files to be uploaded
-                        multiple=True
-                    ),
-                    html.Div(id='output-data-upload'),
-                ]),
+                html.Div(
+                    [
+                        dcc.Upload(
+                            id="upload-data",
+                            children=html.Div(
+                                ["Drag and Drop or ", html.A("Select Files")]
+                            ),
+                            style={
+                                "width": "100%",
+                                "height": "60px",
+                                "lineHeight": "60px",
+                                "borderWidth": "1px",
+                                "borderStyle": "dashed",
+                                "borderRadius": "5px",
+                                "textAlign": "center",
+                                "margin": "10px",
+                            },
+                            # Allow multiple files to be uploaded
+                            multiple=True,
+                        ),
+                        html.Div(id="output-data-upload"),
+                    ]
+                ),
                 html.Span(id="cnsi-output", style={"verticalAlign": "middle"}),
-                html.P("cnsi workup processing here")
+                html.P("cnsi workup processing here"),
             ]
         )
     elif pathname == "/DNPLab":
@@ -93,10 +99,15 @@ def render_page_content(pathname):
         className="p-3 bg-light rounded-3",
     )
 
+
 @app.callback(Output("cnsi-output", "children"), [Input("upload-data", "filename")])
 def cnsi_button(filename):
     return filename
 
 
-if __name__ == "__main__":
+def main_func():
     app.run_server(debug=True, port=8888)
+
+
+if __name__ == "__main__":
+    main_func()

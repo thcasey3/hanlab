@@ -732,9 +732,8 @@ class hydrationGUI(QMainWindow):
         indx = range(starting_center - 50, starting_center + 50)
         optcenter_workspace = self.phs_workspace(optcenter_workspace, phase)
         for k in indx:
-            optcenter_workspace['integrals'] = dnplab.integrate(
-                optcenter_workspace['proc'],
-                regions = [(k-width/2,k+width/2)]
+            optcenter_workspace["integrals"] = dnplab.integrate(
+                optcenter_workspace["proc"], regions=[(k - width / 2, k + width / 2)]
             )
             if len(optcenter_workspace["integrals"].values) > 1:
                 intgrl_array.append(
@@ -775,9 +774,11 @@ class hydrationGUI(QMainWindow):
                 self.processing_workspace = self.phs_workspace(
                     self.processing_workspace, k
                 )
-                self.processing_workspace['integrals'] = dnplab.integrate(
-                    self.processing_workspace['proc'],
-                    regions = [(starting_center - width / 2, starting_center + width/2)]
+                self.processing_workspace["integrals"] = dnplab.integrate(
+                    self.processing_workspace["proc"],
+                    regions=[
+                        (starting_center - width / 2, starting_center + width / 2)
+                    ],
                 )
                 imag_sum.append(
                     np.sum(
@@ -1407,11 +1408,16 @@ class hydrationGUI(QMainWindow):
                 self.processing_workspace, self.gui_dict["processing_spec"]["phase"]
             )
 
-            integrate_center=self.gui_dict["processing_spec"]["integration_center"]
-            integrate_width=self.gui_dict["processing_spec"]["integration_width"]
-            nextproc_workspace['integrals'] = dnplab.integrate(
-                nextproc_workspace['proc'],
-                regions = [(integrate_center - integrate_width/2, integrate_center + integrate_width/2)]
+            integrate_center = self.gui_dict["processing_spec"]["integration_center"]
+            integrate_width = self.gui_dict["processing_spec"]["integration_width"]
+            nextproc_workspace["integrals"] = dnplab.integrate(
+                nextproc_workspace["proc"],
+                regions=[
+                    (
+                        integrate_center - integrate_width / 2,
+                        integrate_center + integrate_width / 2,
+                    )
+                ],
             )
 
             if (
@@ -1460,24 +1466,29 @@ class hydrationGUI(QMainWindow):
             ):
 
                 try:
-                    nextproc_workspace['fit'] = dnplab.fit(dnplab.math.relaxation.t1, nextproc_workspace['proc'], dim = 't1', p0 = (2,-1,1))
+                    nextproc_workspace["fit"] = dnplab.fit(
+                        dnplab.math.relaxation.t1,
+                        nextproc_workspace["proc"],
+                        dim="t1",
+                        p0=(2, -1, 1),
+                    )
 
                     if (
                         self.gui_dict["rawdata_function"]["folder"]
                         in self.gui_dict["folder_structure"]["T1"]
                     ):
-                        self.T1p.append(nextproc_workspace["fit"]['popt'].values[0])
-                        self.T1p_stdd.append(nextproc_workspace["fit"]['err'].values[0])
+                        self.T1p.append(nextproc_workspace["fit"]["popt"].values[0])
+                        self.T1p_stdd.append(nextproc_workspace["fit"]["err"].values[0])
                     elif (
                         self.gui_dict["rawdata_function"]["folder"]
                         == self.gui_dict["folder_structure"]["T10"]
                     ):
-                        self.gui_dict["dnpLab_data"]["T10"] = nextproc_workspace[
-                            "fit"
-                        ]['popt'][0]
+                        self.gui_dict["dnpLab_data"]["T10"] = nextproc_workspace["fit"][
+                            "popt"
+                        ][0]
                         self.gui_dict["dnpLab_data"]["T10_stdd"] = nextproc_workspace[
                             "fit"
-                        ]['err'][0]
+                        ]["err"][0]
                         self.t10Edit.setText(
                             str(round(self.gui_dict["dnpLab_data"]["T10"], 4))
                         )
@@ -1824,15 +1835,19 @@ class hydrationGUI(QMainWindow):
     def processData(self):
 
         self.processing_workspace = copy.deepcopy(self.dnpLab_workspace)
-#        dnplab.dnpNMR.remove_offset(self.processing_workspace)
-        self.processing_workspace['proc'] = dnplab.apodize(
-            self.processing_workspace['proc'],
+        #        dnplab.dnpNMR.remove_offset(self.processing_workspace)
+        self.processing_workspace["proc"] = dnplab.apodize(
+            self.processing_workspace["proc"],
             lw=self.gui_dict["processing_spec"]["linewidth"],
         )
-        self.processing_workspace['proc'] = dnplab.fourier_transform(self.processing_workspace['proc'], zero_fill_factor=2)
+        self.processing_workspace["proc"] = dnplab.fourier_transform(
+            self.processing_workspace["proc"], zero_fill_factor=2
+        )
 
         if self.processing_workspace["proc"].ndim == 2:
-            self.processing_workspace['proc'] = dnplab.align(self.processing_workspace['proc'])
+            self.processing_workspace["proc"] = dnplab.align(
+                self.processing_workspace["proc"]
+            )
             max_index = np.argmax(
                 abs(self.processing_workspace["proc"].values), axis=0
             )[-1]
@@ -1952,12 +1967,17 @@ class hydrationGUI(QMainWindow):
             adjslider_workspace, self.gui_dict["processing_spec"]["phase"]
         )
 
-        integrate_center=self.gui_dict["processing_spec"]["integration_center"]
-        integrate_width=self.gui_dict["processing_spec"]["integration_width"]
+        integrate_center = self.gui_dict["processing_spec"]["integration_center"]
+        integrate_width = self.gui_dict["processing_spec"]["integration_width"]
 
-        adjslider_workspace['integrals'] = dnplab.integrate(
-            adjslider_workspace['proc'],
-            regions = [(integrate_center - integrate_width/2, integrate_center + integrate_width/2)]
+        adjslider_workspace["integrals"] = dnplab.integrate(
+            adjslider_workspace["proc"],
+            regions=[
+                (
+                    integrate_center - integrate_width / 2,
+                    integrate_center + integrate_width / 2,
+                )
+            ],
         )
 
         if len(adjslider_workspace["integrals"].values) == 1:
@@ -1969,7 +1989,12 @@ class hydrationGUI(QMainWindow):
             ].real.values
 
             try:
-                adjslider_workspace['fit'] = dnplab.fit(dnplab.math.relaxation.t1, adjslider_workspace['proc'], dim = 't1', p0 = (2, -1, 1))
+                adjslider_workspace["fit"] = dnplab.fit(
+                    dnplab.math.relaxation.t1,
+                    adjslider_workspace["proc"],
+                    dim="t1",
+                    p0=(2, -1, 1),
+                )
             except:
                 self.gui_dict["data_plot"]["xmin"] = int(
                     round(
@@ -2367,7 +2392,9 @@ class hydrationGUI(QMainWindow):
             try:
                 self.gui_dict["hydration_results"] = dnplab.dnpHydration.hydration(hyd)
                 self.addHyd_workspace = copy.deepcopy(hyd)
-                self.addHyd_workspace["hydration_results"] = self.gui_dict["hydration_results"]
+                self.addHyd_workspace["hydration_results"] = self.gui_dict[
+                    "hydration_results"
+                ]
 
             except:
                 if T100 <= T10:
@@ -2454,7 +2481,9 @@ class hydrationGUI(QMainWindow):
                         or self.gui_dict["gui_function"]["isWorkup"]
                     ):
                         self.addHyd_workspace = copy.deepcopy(whyd)
-                        self.addHyd_workspace["hydration_results"] = self.gui_dict["workup_hydration_results"]
+                        self.addHyd_workspace["hydration_results"] = self.gui_dict[
+                            "workup_hydration_results"
+                        ]
 
                 except:
                     if T100 <= wT10:

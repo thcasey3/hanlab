@@ -1,5 +1,6 @@
 import setuptools
 from distutils.core import setup
+from hanlab.version import __version__
 
 with open("README.md", "r") as f:
     long_description = f.read()
@@ -40,6 +41,7 @@ setup(
     entry_points=dict(
         console_scripts=[
             "hydrationGUI=hanlab.hydrationGUI:main_func",
+            "dnplab-app=hanlab.dnplab-app:main_func",
         ]
     ),
 )
